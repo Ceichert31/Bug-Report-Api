@@ -1,5 +1,4 @@
-﻿
-package com.example.bugreport;
+﻿package com.example.bugreport;
 
 // Maybe we want to pass these things along?
 // Screenshot
