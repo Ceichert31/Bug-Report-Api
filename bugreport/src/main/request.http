@@ -27,3 +27,13 @@ Content-Type: application/json
   "message": "This is test 3",
   "severity": "LOW"
 }
+
+###
+POST https://bug-report-api-bmwe.onrender.com/api/report
+Content-Type: application/json
+
+{
+  "title": "Test 4",
+  "message": "This is test 4",
+  "severity": "LOW"
+}
