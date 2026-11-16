@@ -2,6 +2,8 @@ package com.example.bugreport.controllers;
 
 import com.example.bugreport.records.BugReport;
 import com.example.bugreport.services.BugReportService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 /// Handles external requests
@@ -17,8 +19,10 @@ public class BugReportController {
     // We don't need GET requests, just POST requests for sending info
 
     @PostMapping
-    public BugReport createBugReport(@RequestBody BugReport report){
+    @ResponseStatus(HttpStatus.CREATED)
+    public BugReport createBugReport(@Valid @RequestBody BugReport report){
         // We will return the created bug report here
+        service.send(report);
         return report;
     }
 }
