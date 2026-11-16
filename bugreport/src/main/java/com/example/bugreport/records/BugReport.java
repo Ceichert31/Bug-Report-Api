@@ -11,5 +11,7 @@ import jakarta.validation.constraints.Size;
 public record BugReport(
         @NotBlank @Size(max = 256) String title,
         @NotBlank @Size(max = 4000) String message,
+        Severity severity,
         @Email @Size(max = 256) String email
 ) {}
+
