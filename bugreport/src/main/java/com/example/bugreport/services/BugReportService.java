@@ -15,14 +15,12 @@ import java.util.Map;
 /// Handles interfacing with Discord API and sending bug report
 @Service
 public class BugReportService {
-    private final RestClient discord;
+    private final RestClient discord = RestClient.create();
+    private final String webhookUrl;
 
-    public BugReportService(@Value("${discord.bot-token}") String botToken)
+    public BugReportService(@Value("${discord.webhook-url}") String webhookUrl)
     {
-        this.discord = RestClient.builder()
-                .baseUrl("https://discord.com/api/v10")
-                .defaultHeader(HttpHeaders.AUTHORIZATION, "Bot " + botToken)
-                .build();
+        this.webhookUrl = webhookUrl;
     }
 
 
@@ -43,7 +41,7 @@ public class BugReportService {
         );
 
         discord.post()
-                .uri("/channels/{id}/messages")
+                .uri(webhookUrl + "?wait=true")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(body)
                 .retrieve()
