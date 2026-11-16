@@ -32,6 +32,12 @@ public class BugReportService {
         // If severity wasn't set, default to medium
         Severity severity = report.severity() != null ? report.severity() : Severity.MEDIUM;
 
+        // If no email is provided, set to severity instead
+        fields.add(Map.of("name", "Severity", "value", severity.name(), "inline", true));
+        if (report.email() != null) {
+            fields.add(Map.of("name", "Contact", "value", report.email(), "inline", true));
+        }
+
         // Build message that will display in Discord here
         Map<String, Object> embed = Map.of(
                 "title", report.title(),

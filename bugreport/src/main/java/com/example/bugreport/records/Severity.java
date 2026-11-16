@@ -1,4 +1,4 @@
-﻿package com.example.bugreport.records;
+package com.example.bugreport.records;
 
 /// Used to showcase different bug severities
 public enum Severity{

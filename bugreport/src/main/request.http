@@ -1,0 +1,29 @@
+﻿### Used to quickly run curl commands to test API locally
+
+POST http://localhost:8080/api/report
+Content-Type: application/json
+
+{
+  "title": "Test 1",
+  "message": "This is test 1",
+  "severity": "CRITICAL",
+  "email": "test@gmail.com"
+}
+###
+POST http://localhost:8080/api/report
+Content-Type: application/json
+
+{
+  "title": "Test 2",
+  "message": "This is test 2",
+  "severity": "CRITICAL"
+}
+###
+POST http://localhost:8080/api/report
+Content-Type: application/json
+
+{
+  "title": "Test 3",
+  "message": "This is test 3",
+  "severity": "LOW"
+}
