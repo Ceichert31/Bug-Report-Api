@@ -3,10 +3,17 @@ A bug report API that integrates with Discord to send player in-game bug reports
 
 ## Setup
 
+Game Reporter is meant to be easy for anyone to set up. If you run into any issues in the setup process, post a question in [Discussion](https://github.com/Ceichert31/Game-Reporter/discussions).
+
+1. Fork repo
+2. Setup Render and connect repo
+3. Set Discord webhook URL in environment file
+
+### Hosting
+
 Game-Reporter requires a hosting service to run the API. I recommend [Render](https://render.com/) as it has a free tier. The free tier does have a slow startup time, so bug reports may take about a minute to come in. 
 
 ## Implementation
-
 ### C# Implementation
 ```C#
 using System;
@@ -42,7 +49,6 @@ public class Reporter
 	}
 }
 ```
-
 ### GDScript Implementation
 ```GDScript
 var _report_url := "https://<your-render-domain>.onrender.com"
