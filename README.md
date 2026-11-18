@@ -9,9 +9,38 @@ Game-Reporter requires a hosting service to run the API. I recommend [Render](ht
 
 ### C# Implementation
 ```C#
-private string reportUrl = "https://<your-render-domain>.onrender.com"
+using System;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
 
-private void SubmitBugReport(string title, string message) {}
+
+public class BugReport
+{
+	public string Title { get; set; }
+	public string Message { get; set; }
+}
+
+/// Handles sending HTTP POST requests to the reporter API
+public class Reporter
+{
+	private string reportUrl = "https://<your-render-domain>.onrender.com"
+	private readonly HttpClient client = new HttpClient();
+
+	private async Task SubmitBugReport(report BugReport)
+	{
+		try
+		{
+			var response = await client.PostAsJsonAsync(reportUrl, report);
+
+			response.EnsureSuccessStatusCode();
+		}
+		catch (HttpRequestException e)
+		{
+			Console.WriteLine($"Failed to submit bug report: {e.Message}");
+		}
+	}
+}
 ```
 
 ### GDScript Implementation
