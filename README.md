@@ -5,7 +5,7 @@ A bug report API that integrates with Discord to send player in-game bug reports
 
 Game-Reporter requires a hosting service to run the API. I recommend [Render](https://render.com/) as it has a free tier. The free tier does have a slow startup time, so bug reports may take about a minute to come in. 
 
-## Implemetation
+## Implementation
 
 ### C# Implementation
 ```C#
