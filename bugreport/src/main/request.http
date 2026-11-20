@@ -28,6 +28,32 @@ Content-Type: application/json
   "severity": "LOW"
 }
 
+
+###
+POST http://localhost:8080/api/report
+Content-Type: multipart/form-data; boundary=BugBoundary
+
+--BugBoundary
+Content-Disposition: form-data; name="report"
+Content-Type: application/json
+
+{
+  "title": "Enemies spawn in walls",
+  "message": "When playing, the enemies spawn in the walls sometimes and get stuck for a short duration.",
+  "severity": "LOW",
+  "email": "example@gmail.com"
+}
+--BugBoundary
+Content-Disposition: form-data; name="screenshot"; filename="Icon.png"
+Content-Type: image/png
+
+< C:\Repos\bugreport\Bug-Report-Api\bugreport\src\Icon.png
+--BugBoundary
+Content-Disposition: form-data; name="log"; filename="test.log"
+Content-Type: text/plain
+
+< C:\Repos\bugreport\Bug-Report-Api\bugreport\src\log.txt
+--BugBoundary--
 ###
 POST https://bug-report-api-bmwe.onrender.com/api/report
 Content-Type: application/json

@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 // Maybe we want to pass these things along?
-// Screenshot
+// Screenshot + log file
 // Severity?
 // User email/contact info
 public record BugReport(
